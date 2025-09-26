@@ -3,119 +3,92 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANYTING</title>
+    <title>azizhendra-somebodypleasure</title>
   </head>
   <style>
     body {
+      background-image: url('abot.png');
       font-family: Arial, Sans-Serif;
-      background-image: url('abot.jpg');
       display: flex;
       height: 100vh;
       flex-direction: column;
-      text-align: center;
       justify-content: center;
       align-items: center;
-    }
-    
-    .tombol {
-      font-size: 45px;
+      text-align: center;
     }
     
     img {
-      box-shadow: 0 9px 18px rgba(0, 0, 0, 0.9);
+      box-shadow: 0 0 4px 4px rgba(0,0,0,0.2);
       margin-bottom: 1px;
     }
     
-    h3 {
-      font-size: 28px;
+    h1 {
       color: white;
       margin-top: 0;
       margin-bottom: 1px;
+      font-size: 28px;
     }
     
     p {
+      color: white;
+      margin-top: 0;
       font-size: 22px;
-      color: white;
-      margin-top: 0;
-      margin-bottom: 1px;
     }
     
-    .play {
-      margin-top: 0;
-      color: white;
-      
-      background: grey;
+    .tombol {
       font-size: 19px;
+      color: white;
+      background: grey;
       border-radius: 16px;
-      border: 0px solid black;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+      border: 0px solid pink;
       padding: 12px;
+      box-shadow: 0 0 4px 4px rgba(0,0,0,0.2);
       width: 95px;
+      height: 49px;
     }
     
-    .pause {
-      margin-top: 0;
-      color: white;
-      margin-bottom: 1px;
-      background: grey;
+    .tisu {
       font-size: 19px;
-      border-radius: 16px;
-      border: 0px solid black;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
-      padding: 12px;
-       width: 95px;
-    }
-    
-    .play:hover {
-      background: white;
-      color: grey;
-    }
-    
-    .pause:hover {
-      background: white;
-      color: grey;
-    }
-    
-     .apa {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 12px 25px;
-      background-color: grey;
       color: white;
-      border: none;
-      border-radius: 12px;
-      font-size: 12px;
-     }
-    
+      background: grey;
+      border-radius: 16px;
+      border: 0px solid pink;
+      padding: 12px;
+      box-shadow: 0 0 4px 4px rgba(0,0,0,0.2);
+      width: 98px;
+      height: 57px;
+    }
   </style>
   <body>
-    <div class="tt">
-    <img src="1975.jpg" width="330px" height="330px">
-    </div>
-    <h3>About You</h3>
-    <p>The 1975</p>
-    <audio id="pley" loop="true">
-      <source src="about.mp3" type="audio/mpeg">
-    </audio>
-    <div class="tombol">
-    <button class="play" onclick="playMusic()"><b>Play</b></button> 
-    <button class="pause" onclick="pauseMusic()"><b>Pause</b></button>
-    </div>
-    <script>
-      const audio = document.getElementById('pley');
-      
-      function playMusic() {
-        audio.play();
-      }
-      
-      function pauseMusic() {
-        audio.pause();
-      }
-    </script>
-    <a href="page2.html">
-      <button class="apa">Next Music</button>
-    </a>
+  <img src="1975.jpg" width="330px">
+  <h1>About You</h1>
+  <P>The 1975</P>
+  
+  <audio id="belong" loop="true">
+    <source src="sambadi.mp3" type="audio/mpeg">
+  </audio>
+  <div>
+  <a href="page2.html"><button class="tombol"><b>Back</b></button></a>
+  <button id="playPauseBtn" class="tisu"><b>Play</b></button>
+  <a href="page4.html">
+    <button class="tombol"><b>Next</b></button>
+  </a>
+  </div>
+  
+  <script>
+    const audio = document.getElementById('belong');
+      const playPauseBtn = document.getElementById('playPauseBtn');
+
+      playPauseBtn.addEventListener('click', () => {
+        if (audio.paused) {
+          audio.play();
+          playPauseBtn.innerHTML = "<b>Pause</b>";
+          
+        } else {
+          audio.pause();
+          playPauseBtn.innerHTML = "<b>Play</b>";
+        }
+      });
+  </script>
   </body>
 </html>
