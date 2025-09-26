@@ -37,7 +37,19 @@
       text-shadow: 0 0 9px 9px rgba(0,0,0,0.3);
     }
     
-    .lanjut {
+    .putar {
+      color: white;
+      font-size: 20px;
+      background: #C23C4D;
+      border: 0px solid pink;
+      padding 12px;
+      border-radius: 16px;
+      box-shadow: 0 0 4px 4px rgba(0,0,0,0.2);
+      width: 98px;
+      height: 57px;
+    }
+    
+    .backnext {
       color: white;
       font-size: 19px;
       background: #C23C4D;
@@ -47,51 +59,41 @@
       box-shadow: 0 0 4px 4px rgba(0,0,0,0.2);
       width: 95px;
       height: 49px;
-    }
-    
-    .benti {
-      color: white;
-      font-size: 19px;
-      background: #C23C4D;
-      border: 0px solid pink;
-      padding 12px;
-      border-radius: 16px;
-      box-shadow: 0 0 4px 4px rgba(0,0,0,0.2);
-      width: 95px;
-      height: 49px;
-    }
-        
-    .lanjut:hover {
-      background: white;
-      color: #C23C4D;
-    }
-    
-    .benti:hover {
-      background: white;
-      color: #C23C4D;
     }
   </style>
   <body>
     <img src="foto.jpg" width="330px">
     <h1>ours to keep</h1>
     <p>Kendis, adis</p>
-    <audio id="to" loop="true">
-      <source src="music.mp3">
+    
+    <audio id="playPause" loop="true">
+      <source src="music.mp3" type="audio/mpeg">
     </audio>
-    <div class="btn">
-    <button class="lanjut"onclick="playMusic()"><b>Play</b></button>
-    <button class="benti" onclick="pauseMusic()"><b>Pause</b></button>
+    
+    <div class="tombol">
+      <a href="index.html">
+        <button class="backnext"><b>Back</b></button>
+      </a>
+    <button id="playPauseBtn" class="putar"><b>Play</b></button>
+      <a href="page3.html">
+        <button class="backnext"><b>Next</b></button>
+      </a>
     </div>
+    
     <script>
-      const audio = document.getElementById('to')
-      
-      function playMusic() {
-        audio.play()
-      }
-      
-      function pauseMusic() {
-        audio.pause()
-      }
+      const audio = document.getElementById('playPause');
+      const playPauseBtn = document.getElementById('playPauseBtn');
+
+      playPauseBtn.addEventListener('click', () => {
+        if (audio.paused) {
+          audio.play();
+          playPauseBtn.innerHTML = "<b>Pause</b>";
+          
+        } else {
+          audio.pause();
+          playPauseBtn.innerHTML = "<b>Play</b>";
+        }
+      });
     </script>
   </body>
 </html>
