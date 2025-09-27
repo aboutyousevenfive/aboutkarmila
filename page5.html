@@ -83,10 +83,10 @@
           judul: lagu,
           waktu: new Date()
         });
-        status.textContent = "Request berhasil dikirim!";
+        status.textContent = "completed!";
         form.reset();
       } catch (error) {
-        status.textContent = "Gagal mengirim: " + error.message;
+        status.textContent = "gagal mengirim: " + error.message;
       }
     });
   </script>
