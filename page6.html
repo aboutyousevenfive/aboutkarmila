@@ -1,94 +1,92 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>kapandapetpap?</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 50px;
-      background: #f7f7f7;
-    }
-    input, button {
-      padding: 10px;
-      font-size: 16px;
-      margin: 5px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    button {
-      background: #4CAF50;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #45a049;
-    }
-    #status {
-      margin-top: 15px;
-      font-weight: bold;
-    }
-  </style>
-</head>
-<body>
-  <p style="font-size: 28px">lagi gaenak badan jirlah, banyak juga yg harus di fix, dan ketua lagi gabisa. klean req lagu aja, biar nanti ketua tambahin.</p>
-
-  <form id="requestForm">
-    <input type="text" id="lagu" placeholder="song name" required>
-    <br><br>
-    <button type="submit">kirim</button>
-  </form>
-
-  <p id="status"></p>
-
-  <!-- Firebase Script -->
-  <script type="module">
-    // Import Firebase SDK
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
-    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
-
-    // 🔹 Firebase Config Punyamu
-    const firebaseConfig = {
-      apiKey: "AIzaSyC0eZg3WSCC-4tRTg9IpqelL6zPtYsyifo",
-      authDomain: "request-lagu-1018b.firebaseapp.com",
-      projectId: "request-lagu-1018b",
-      storageBucket: "request-lagu-1018b.firebasestorage.app",
-      messagingSenderId: "672428515065",
-      appId: "1:672428515065:web:291ad57cc290feb15f4c28"
-    };
-
-    // 🔹 Hubungkan Firebase
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    // 🔹 Simpan data judul lagu ke Firestore
-    const form = document.getElementById("requestForm");
-    const status = document.getElementById("status");
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      const lagu = document.getElementById("lagu").value.trim();
-
-      if (!lagu) {
-        status.textContent = "Judul lagu tidak boleh kosong!";
-        return;
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>radioheadletdown</title>
+    <style>
+      body {
+        font-family: Arial, Sans-Serif;
+        background-image: url('bgend.jpg');
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
       }
-
-      try {
-        await addDoc(collection(db, "requestLagu"), {
-          judul: lagu,
-          waktu: new Date()
-        });
-        status.textContent = "Request berhasil dikirim!";
-        form.reset();
-      } catch (error) {
-        status.textContent = "Gagal mengirim: " + error.message;
+      
+      img {
+        box-shadow: 0 0 4px 4px  rgba(255,255,255,0.02);
+        margin-bottom: 1px;
       }
-    });
-  </script>
-</body>
+      
+      h1 {
+        color: white;
+        font-size: 18px;
+        margin-top: 0;
+        margin-bottom: 1px;
+        text-shadow: 0 2px 4px   rgba(255,255,255,0.09);;
+      }
+      
+      p {
+        color: white;
+        font-size: 13px;
+        margin-top: 0;
+       text-shadow: 0 2px 9px rgba(0,0,0,0.9);
+      }
+      
+      .nextback {
+        color: white;
+        background-color: #2060E3;
+        font-size: 12px;
+        border: 0px solid pink;
+        border-radius: 14px;
+        padding: 12px;
+        box-shadow: 0 0 4px 4px rgba(0,0,0,0.2);
+        width: 60px;
+        height: 38px;
+      }
+      
+      .tombol {
+        color: white;
+        background-color: #2060E3;
+        font-size: 13px;
+        border: 0px solid pink;
+        border-radius: 14px;
+        padding: 12px;
+        box-shadow: 0 0 4px 4px rgba(0,0,0,0.2);
+        width: 70px;
+        height: 42px;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="end.jpg" width="240px">
+    <h1>End of Begining</h1>
+    <p>Djo</p>
+    <audio id="let" loop="true">
+      <source src="begining.mp3">
+    </audio>
+    <div class="laguke5">
+      <a href="page5.html"><button class="nextback"><b>Back</b></button></a>
+      <button id="down" class="tombol"><b>Play</b></button>
+      <a href="page7.html"><button class="nextback"><b>Next</b></button></a>
+  <script>
+      const audio = document.getElementById('let');
+      const playPauseBtn = document.getElementById('down');
+      
+       playPauseBtn.addEventListener('click', () => {
+        if (audio.paused) {
+          audio.play();
+          playPauseBtn.innerHTML = "<b>Pause</b>";
+          
+        } else {
+          audio.pause();
+          playPauseBtn.innerHTML = "<b>Play</b>";
+        }
+      });
+      </script>
+    </div>
+  </body>
 </html>
