@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>radioheadletdown</title>
+    <style>
+      body {
+        font-family: Arial, Sans-Serif;
+        margin: 0; 
+        background-image: url('letdown4.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        background-color: #000; 
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      img {
+        box-shadow: 0 0 4px 4px  rgba(0,0,0,0.2);
+        margin-bottom: 1px;
+      }
+      
+      h1 {
+        color: white;
+        font-size: 18px;
+        margin-top: 0;
+        margin-bottom: 1px;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+      }
+      
+      p {
+        color: white;
+        font-size: 13px;
+        margin-top: 0;
+       text-shadow: 0 2px 9px rgba(0,0,0,0.9);
+      }
+      
+      .nextback {
+        color: white;
+        background-color: #78B7DE;
+        font-size: 12px;
+        border: 0px solid pink;
+        border-radius: 14px;
+        padding: 12px;
+        box-shadow: 0 0 4px 4px rgba(0,0,0,0.2);
+        width: 60px;
+        height: 38px;
+      }
+      
+      .tombol {
+        color: white;
+        background-color: #78B7DE;
+        font-size: 13px;
+        border: 0px solid pink;
+        border-radius: 14px;
+        padding: 12px;
+        box-shadow: 0 0 4px 4px rgba(0,0,0,0.2);
+        width: 70px;
+        height: 42px;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="letdown2.jpg" width="240px">
+    <h1>Let Down</h1>
+    <p>Radiohead</p>
+    <audio id="let" loop="true">
+      <source src="letdown1.mp3">
+    </audio>
+    <div class="laguke5">
+      <a href="page4.html"><button class="nextback"><b>Back</b></button></a>
+      <button id="down" class="tombol"><b>Play</b></button>
+      <a href="page6.html"><button class="nextback"><b>Next</b></button></a>
+  <script>
+      const audio = document.getElementById('let');
+      const playPauseBtn = document.getElementById('down');
+      
+       playPauseBtn.addEventListener('click', () => {
+        if (audio.paused) {
+          audio.play();
+          playPauseBtn.innerHTML = "<b>Pause</b>";
+          
+        } else {
+          audio.pause();
+          playPauseBtn.innerHTML = "<b>Play</b>";
+        }
+      });
+      </script>
+    </div>
+  </body>
+</html>
