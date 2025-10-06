@@ -1,94 +1,93 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>kapandapetpap?</title>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>laguketuju</title>
+  </head>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      background-image: url('when3.jpg');
+      font-family: Arial, Sans-Serif;
+      display: flex;
+      height: 100vh;
+      flex-direction: column;
       text-align: center;
-      margin-top: 50px;
-      background: #f7f7f7;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1px;
     }
-    input, button {
-      padding: 10px;
-      font-size: 16px;
-      margin: 5px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    button {
-      background: #4CAF50;
+    
+  img {
+    box-shadow: 0 0 4px 4px rgba(0,0,0,0.2);
+  }
+    
+    h1 {
+      font-size: 18px;
       color: white;
+      margin-top: 0;
+      margin-bottom: 1px;
+      text-shadow: 0 4px 4px rgba(0,0,0,0.2);
+    }
+    
+    p {
+      font-size: 13px;
+      color: white;
+      margin-top: 0;
+    }
+    
+    .nextback {
+      color: white;
+      font-size: 12px;
       border: none;
-      cursor: pointer;
+      padding: 12px;
+      width: 60px;
+      height: 38px;
+      border-radius: 14px;
+      background-color: #E7DCC8;
+      box-shadow: 0 0 4px 4px rgba(0,0,0,0.2);
     }
-    button:hover {
-      background: #45a049;
-    }
-    #status {
-      margin-top: 15px;
-      font-weight: bold;
+    
+    .tengah {
+      color: white;
+      text-shadow: ; 0 4px 4px rgba(0,0,0,0.2);
+      font-size: 13px;
+      border: none;
+      padding: 12px;
+      width: 70px;
+      height: 42px;
+      border-radius: 14px;
+      background-color: #E7DCC8;
+      box-shadow: 0 0 4px 4px rgba(0,0,0,0.2);
     }
   </style>
-</head>
-<body>
-  <p style="font-size: 28px">lagi gaenak badan jirlah, banyak juga yg harus di fix, dan ketua lagi gabisa. klean req lagu aja, biar nanti ketua tambahin.</p>
-
-  <form id="requestForm">
-    <input type="text" id="lagu" placeholder="song name" required>
-    <br><br>
-    <button type="submit">kirim</button>
-  </form>
-
-  <p id="status"></p>
-
-  <!-- Firebase Script -->
-  <script type="module">
-    // Import Firebase SDK
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
-    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
-
-    // 🔹 Firebase Config Punyamu
-    const firebaseConfig = {
-      apiKey: "AIzaSyC0eZg3WSCC-4tRTg9IpqelL6zPtYsyifo",
-      authDomain: "request-lagu-1018b.firebaseapp.com",
-      projectId: "request-lagu-1018b",
-      storageBucket: "request-lagu-1018b.firebasestorage.app",
-      messagingSenderId: "672428515065",
-      appId: "1:672428515065:web:291ad57cc290feb15f4c28"
-    };
-
-    // 🔹 Hubungkan Firebase
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    // 🔹 Simpan data judul lagu ke Firestore
-    const form = document.getElementById("requestForm");
-    const status = document.getElementById("status");
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      const lagu = document.getElementById("lagu").value.trim();
-
-      if (!lagu) {
-        status.textContent = "Judul lagu tidak boleh kosong!";
-        return;
-      }
-
-      try {
-        await addDoc(collection(db, "requestLagu"), {
-          judul: lagu,
-          waktu: new Date()
-        });
-        status.textContent = "Request berhasil dikirim!";
-        form.reset();
-      } catch (error) {
-        status.textContent = "Gagal mengirim: " + error.message;
-      }
-    });
-  </script>
-</body>
+  <body>
+    <img src="when2.jpg" width="240px">
+    <h1>When I Was Your Man</h1>
+    <p>Bruno Mars</p>
+    <audio id="man" loop="true">
+      <source src="when1.mp3" type="audio/mpeg">
+    </audio>
+    <div>
+    <a href="page6.html"><button class="nextback"><b>Back</b></button></a>
+    <button id="your" class="tengah"><b>Play</b></button>
+    <a href="page8.html"><button class="nextback"><b>Next</b></button></a>
+    </div>
+    <script>
+      const audio = document.getElementById('man');
+      const playPauseBtn =  document.getElementById('your');
+      
+      playPauseBtn.addEventListener('click', () => {
+        if  (audio.paused) {
+          audio.play();
+          playPauseBtn.innerHTML = "<b>Pause</b>"
+        }
+        
+        else {
+          audio.pause()
+          playPauseBtn.innerHTML = "<b>Play</b>"
+        }
+      });
+    </script>
+  </body>
 </html>
