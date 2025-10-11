@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>laguke8</title>
+  </head>
+  <style>
+    body {
+      font-family: Arial, Sans-Serif;
+      background-image: url('die1.jpg');
+      display: flex;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    img {
+      margin-bottom: 1px;
+      box-shadow: 0 0 4px 4px rgba(0,0,0,0.2);
+    }
+    
+    h1 {
+      margin-top: 0;
+      font-size: 18px;
+      color: white;
+      margin-bottom: 1px;
+    }
+    
+    p {
+      margin-top: 0;
+      font-size: 13px;
+      color: white;
+    }
+    
+    .tombol {
+      color: white;
+      background-color: #3DB8FF;
+      font-size: 13px;
+      border: 0px solid black;
+      padding: 12px;
+      border-radius: 14px;
+      width: 70px;
+      height: 42px;
+      box-shadow: 0 0 4px 4px rgba(0,0,0,0.2);
+    }
+    
+    .nextback {
+      color: white;
+      background-color: #C7002A;
+      font-size: 12px;
+      border: 0px solid black;
+      padding: 12px;
+      border-radius: 14px;
+      width: 60px;
+      height: 38px;
+      box-shadow: 0 0 4px 4px rgba(0,0,0,0.2);
+    }
+  </style>
+  <body>
+    <img src="die2.jpg" width="240px">
+    <h1>Die With A Smile</h1>
+    <p>Lady Gaga, Bruno Mars</p>
+    <audio id="die" loop="true">
+      <source src="die3.mp3" type="audio/mpeg">
+    </audio>
+    <div>
+      <a href="page7.html"><button class="nextback"><b>Back</b></button class="nextback"></a>
+    <button id="with" class="tombol"><b>Play</b></button>
+    <a href="page9.html"><button class="nextback"><b>Next</b></button></a>
+    </div>
+    <script>
+      const audio = document.getElementById('die');
+      const playPauseBtn = document.getElementById('with');
+      
+      playPauseBtn.addEventListener('click', () => {
+        if (audio.paused) {
+          audio.play();
+          playPauseBtn.innerHTML="<b>Pause</b>"
+        }
+        else {
+          audio.pause();
+          playPauseBtn.innerHTML="<b>Play</b>"
+        }
+      });
+    </script>
+  </body>
+</html>
