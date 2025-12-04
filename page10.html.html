@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=" 1.0">
+    <title>Coldplay - Fix You</title>
+</head>
+<style>
+    body {
+        background-image: url('you.jpg.jpg');
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contains;
+        background-color: #000;
+        margin: 0%;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    img {
+        box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.2);
+        margin-bottom: 1px;
+    }
+
+    h1 {
+        color: white;
+        margin-top: 0;
+        margin-bottom: 1px;
+        font-size: 18px;
+    }
+
+    p {
+        color: white;
+        margin-top: 0;
+        font-size: 13px;
+    }
+
+    .tombol {
+        font-size: 12px;
+        color: white;
+        background: #0d266d;
+        border-radius: 14px;
+        border: 0px solid pink;
+        padding: 12px;
+        box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.2);
+        width: 60px;
+        height: 38px;
+    }
+
+    .tisu {
+        font-size: 13px;
+        color: white;
+        background: #0d266d;
+        border-radius: 14px;
+        border: 0px solid pink;
+        padding: 12px;
+        box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.2);
+        width: 70px;
+        height: 42px;
+    }
+</style>
+
+<body>
+    <img src="fixyou2.jpg.jpg" width="240px">
+    <h1>Fix You</h1>
+    <p>Coldplay</p>
+
+    <audio id="belong" loop="true">
+        <source src="fixyou.mp3.mp3" type="audio/mpeg">
+    </audio>
+    <div>
+        <a href="page2.html"><button class="tombol"><b>Back</b></button></a>
+        <button id="playPauseBtn" class="tisu"><b>Play</b></button>
+        <a href="page4.html">
+            <button class="tombol"><b>Next</b></button>
+        </a>
+    </div>
+
+    <script>
+        const audio = document.getElementById('belong');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+
+        playPauseBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                playPauseBtn.innerHTML = "<b>Pause</b>";
+
+            } else {
+                audio.pause();
+                playPauseBtn.innerHTML = "<b>Play</b>";
+            }
+        });
+    </script>
+</body>
+
+</html>
